@@ -1,0 +1,3 @@
+/home/lingbo/openCV_practice/chessboard/CMakeFiles/rebuild_cache.dir
+/home/lingbo/openCV_practice/chessboard/CMakeFiles/chessboard.dir
+/home/lingbo/openCV_practice/chessboard/CMakeFiles/edit_cache.dir
