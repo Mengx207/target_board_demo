@@ -26,7 +26,7 @@ int main(int argc, char ** argv)
     // Ptr<FeatureDetector> blobDetector = new SimpleBlobDetector(params);
     Ptr<FeatureDetector> blobDetector = SimpleBlobDetector::create(params);
     bool patternfound = findCirclesGrid(image_dot,patternsize,centers, CALIB_CB_ASYMMETRIC_GRID, blobDetector);
-    cout<<centers<<endl<<endl;
+    cout<<"image points: "<<endl<<centers<<endl<<endl;
     drawChessboardCorners(image_dot_center, patternsize, Mat(centers), patternfound);
 
     Size2i board_shape(5,11);
@@ -38,16 +38,20 @@ int main(int argc, char ** argv)
         boardPoints_2D.push_back(Point2f(10*boardPoints[n].x+400,-(10*boardPoints[n].y)+200)); // to show the target board feature dot, reverse y axis, zoom and shift to center of image
     }
     drawChessboardCorners(board_points, board_shape, Mat(boardPoints_2D), patternfound);
-    cout<<boardPoints<<endl<<boardPoints.size()<<endl<<boardPoints_2D<<endl;
+    cout<<"target board points: "<<endl<<boardPoints<<endl<<"size of board: "<<boardPoints.size()<<endl<<endl;
 
     Mat cameraMatrix(3,3,IMREAD_GRAYSCALE), distCoeffs(1,5,IMREAD_GRAYSCALE);
-    cameraMatrix = ( 3.4714076499814091e+03, 0., 7.5181741352412894e+02, 
-                    0., 3.4711767048332676e+03, 5.4514783904300646e+02, 
-                    0., 0., 1. );
-    distCoeffs = ( -1.8430923287702131e-01, -4.2906853550556068e-02, -2.1393762247926785e-04, 2.9790668148119045e-04, 5.9981578839159733e+00 );
+    // cameraMatrix = ( 3.4714076499814091e+03, 0., 7.5181741352412894e+02, 
+    //                 0., 3.4711767048332676e+03, 5.4514783904300646e+02, 
+    //                 0., 0., 1. );
+    // distCoeffs = ( -1.8430923287702131e-01, -4.2906853550556068e-02, -2.1393762247926785e-04, 2.9790668148119045e-04, 5.9981578839159733e+00 );
+    cameraMatrix = ( 3471.4076499814091, 0, 751.81741352412894, 
+                    0, 3471.1767048332676, 545.14783904300646, 
+                    0, 0, 1 );
+    distCoeffs = ( -0.18430923287702131, -0.042906853550556068, -0.00021393762247926785, 0.00029790668148119045, 5.9981578839159733 );    
     Mat rvec, tvec;
-    solvePnP(boardPoints,centers, cameraMatrix, distCoeffs,rvec, tvec);
-    cout<<"rvec:"<<endl<<rvec<<endl<<"tvec:"<<endl<<tvec<<endl;
+    solvePnP(boardPoints, centers, cameraMatrix, distCoeffs, rvec, tvec);
+    cout<<"rvec:"<<endl<<rvec<<endl<<endl<<"tvec:"<<endl<<tvec<<endl;
 
     imshow("Captured Image", image_dot);    // Show the result
     imshow("Captured Image Centers", image_dot_center);
