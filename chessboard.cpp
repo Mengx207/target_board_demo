@@ -10,7 +10,7 @@ vector<Point3f> createBoardPoints(Size2i board_shape, double diagonal_spacing);
 
 int main(int argc, char ** argv)
 {
-    Mat image_dot = imread( "image_captured1.png", IMREAD_GRAYSCALE);
+    Mat image_dot = imread( "image_captured2.png", IMREAD_GRAYSCALE);
     // Mat gray = imread( "symmetric_dots.png", IMREAD_GRAYSCALE);
     Mat image_dot_center(image_dot.rows, image_dot.cols, IMREAD_GRAYSCALE);
     Mat board_points(1000, 1000, IMREAD_GRAYSCALE);
@@ -40,18 +40,21 @@ int main(int argc, char ** argv)
     drawChessboardCorners(board_points, board_shape, Mat(boardPoints_2D), patternfound);
     cout<<"target board points: "<<endl<<boardPoints<<endl<<"size of board: "<<boardPoints.size()<<endl<<endl;
 
-    Mat cameraMatrix(3,3,IMREAD_GRAYSCALE), distCoeffs(1,5,IMREAD_GRAYSCALE);
-    // cameraMatrix = ( 3.4714076499814091e+03, 0., 7.5181741352412894e+02, 
-    //                 0., 3.4711767048332676e+03, 5.4514783904300646e+02, 
-    //                 0., 0., 1. );
-    // distCoeffs = ( -1.8430923287702131e-01, -4.2906853550556068e-02, -2.1393762247926785e-04, 2.9790668148119045e-04, 5.9981578839159733e+00 );
-    cameraMatrix = ( 3471.4076499814091, 0, 751.81741352412894, 
-                    0, 3471.1767048332676, 545.14783904300646, 
-                    0, 0, 1 );
-    distCoeffs = ( -0.18430923287702131, -0.042906853550556068, -0.00021393762247926785, 0.00029790668148119045, 5.9981578839159733 );    
+    vector<double> cameraMatrix_values
+    { 3.4714076499814091e+03, 0., 7.5181741352412894e+02, 
+        0., 3.4711767048332676e+03, 5.4514783904300646e+02, 
+        0., 0., 1.  };
+    vector<double> distCoeffs_values
+    { -1.8430923287702131e-01, -4.2906853550556068e-02, -2.1393762247926785e-04, 2.9790668148119045e-04, 5.9981578839159733e+00};
+
+    Mat cameraMatrix = Mat(3, 3, CV_64FC1, cameraMatrix_values.data());
+    Mat distCoeffs = Mat(5, 1, CV_64FC1, distCoeffs_values.data());
+
     Mat rvec, tvec;
     solvePnP(boardPoints, centers, cameraMatrix, distCoeffs, rvec, tvec);
     cout<<"rvec:"<<endl<<rvec<<endl<<endl<<"tvec:"<<endl<<tvec<<endl;
+    double distance = sqrt(tvec.at<double>(0)*tvec.at<double>(0)+tvec.at<double>(1)*tvec.at<double>(1)+tvec.at<double>(2)*tvec.at<double>(2));
+    cout<<"distance between target board and camera: "<<distance<<"mm"<<endl;
 
     imshow("Captured Image", image_dot);    // Show the result
     imshow("Captured Image Centers", image_dot_center);
