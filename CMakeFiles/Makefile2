@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lingbo/openCV_practice/chessboard
+CMAKE_SOURCE_DIR = /home/lingbo/Documents/GitHub/target_board_demo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lingbo/openCV_practice/chessboard
+CMAKE_BINARY_DIR = /home/lingbo/Documents/GitHub/target_board_demo
 
 #=============================================================================
 # Target rules for target CMakeFiles/chessboard.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/lingbo/openCV_practice/chessboard
 CMakeFiles/chessboard.dir/all:
 	$(MAKE) -f CMakeFiles/chessboard.dir/build.make CMakeFiles/chessboard.dir/depend
 	$(MAKE) -f CMakeFiles/chessboard.dir/build.make CMakeFiles/chessboard.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lingbo/openCV_practice/chessboard/CMakeFiles --progress-num=1,2 "Built target chessboard"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lingbo/Documents/GitHub/target_board_demo/CMakeFiles --progress-num=1,2 "Built target chessboard"
 .PHONY : CMakeFiles/chessboard.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/chessboard.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/chessboard.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lingbo/openCV_practice/chessboard/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lingbo/Documents/GitHub/target_board_demo/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/chessboard.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lingbo/openCV_practice/chessboard/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lingbo/Documents/GitHub/target_board_demo/CMakeFiles 0
 .PHONY : CMakeFiles/chessboard.dir/rule
 
 # Convenience name for target.

@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/lingbo/openCV_practice/chessboard/chessboard.cpp
+/home/lingbo/Documents/GitHub/target_board_demo/chessboard.cpp
 opencv2/core.hpp
-/home/lingbo/openCV_practice/chessboard/opencv2/core.hpp
+/home/lingbo/Documents/GitHub/target_board_demo/opencv2/core.hpp
 opencv2/imgproc.hpp
-/home/lingbo/openCV_practice/chessboard/opencv2/imgproc.hpp
+/home/lingbo/Documents/GitHub/target_board_demo/opencv2/imgproc.hpp
 opencv2/imgcodecs.hpp
-/home/lingbo/openCV_practice/chessboard/opencv2/imgcodecs.hpp
+/home/lingbo/Documents/GitHub/target_board_demo/opencv2/imgcodecs.hpp
 opencv2/highgui.hpp
-/home/lingbo/openCV_practice/chessboard/opencv2/highgui.hpp
+/home/lingbo/Documents/GitHub/target_board_demo/opencv2/highgui.hpp
 opencv2/calib3d.hpp
-/home/lingbo/openCV_practice/chessboard/opencv2/calib3d.hpp
+/home/lingbo/Documents/GitHub/target_board_demo/opencv2/calib3d.hpp
 iostream
 -
 

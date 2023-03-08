@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lingbo/openCV_practice/chessboard/chessboard.cpp" "/home/lingbo/openCV_practice/chessboard/CMakeFiles/chessboard.dir/chessboard.cpp.o"
+  "/home/lingbo/Documents/GitHub/target_board_demo/chessboard.cpp" "/home/lingbo/Documents/GitHub/target_board_demo/CMakeFiles/chessboard.dir/chessboard.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
